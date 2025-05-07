@@ -1,0 +1,28 @@
+﻿<section id="services" class="services section">
+	@model List<Service>
+	<!-- Section Title -->
+	<div class="container section-title" data-aos="fade-up">
+		<h2>Hizmetlerim</h2>
+		<p>Sunduğum hizmetler aşağıda verilmiştir. </p>
+	</div><!-- End Section Title -->
+
+	<div class="container">
+
+		<div class="row gy-4">
+			@foreach (var item in Model) 
+			{ 
+			<div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+				<div class="icon flex-shrink-0"><i class="@item.Icon"></i></div>
+				<div>
+					<h4 class="title"><a href="service-details.html" class="stretched-link">@item.Title</a></h4>
+					<p class="description">@item.Description</p>
+				</div>
+			</div>
+			<!-- End Service Item -->
+			}
+		
+		</div>
+
+	</div>
+
+</section>

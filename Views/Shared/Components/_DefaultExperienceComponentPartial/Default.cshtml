@@ -1,0 +1,30 @@
+﻿@model List<Experience>
+
+<section id="resume" class="resume section">
+	<div class="container section-title" data-aos="fade-up">
+		<h2>Deneyimlerim</h2>
+		<p></p>
+	</div>
+	<div class="container">
+		<div class="row">
+
+			@foreach (var item in Model)
+			{
+				<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+					<div class="resume-item pb-0">
+						<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+							<h4>@item.Title</h4>
+							<h5>@item.ExperienceDate</h5>
+							<p><em>@item.CompanyName </em></p>
+							<ul>
+								<li>@item.Description</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			}
+
+			@await Component.InvokeAsync("_DefaultEducationComponentPartial")
+		</div>
+	</div>
+</section>

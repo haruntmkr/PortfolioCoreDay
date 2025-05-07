@@ -1,0 +1,20 @@
+﻿@model PortfolioCoreDay.Entities.Testimonial
+@{
+    ViewData["Title"] = "CreateTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Yeni Referans Girişi</h1>
+<form method="post">
+    <label>Ad Soyad</label>
+    <input type="text" asp-for="NameSurname" class="form-control" style="border:1px solid black" />
+    <label>Referans Unvan</label>
+    <input type="text" asp-for="Title" class="form-control" style="border:1px solid black" />
+    <label>Görsel Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" style="border:1px solid black" />
+    <label>Referans Açıklaması</label>
+    <textarea asp-for="Description" class="form-control" rows="5" style="border:1px solid black" ></textarea>
+    <br />
+    <button class="btn btn-primary">Referansı Kaydet</button>
+
+</form>

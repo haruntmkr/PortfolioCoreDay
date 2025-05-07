@@ -1,0 +1,35 @@
+﻿@model PortfolioCoreDay.Entities.Message
+<div class="col-lg-7">
+	<form method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+		<div class="row gy-4">
+
+			<div class="col-md-6">
+				<label for="name-field" class="pb-2">Ad</label>
+				<input type="text" asp-for="NameSurname" name="NameSurname" id="name-field" class="form-control" required="">
+			</div>
+
+			<div class="col-md-6">
+				<label for="email-field" class="pb-2">Eposta</label>
+				<input type="email" asp-for="Email" class="form-control" name="email" id="email-field" required="">
+			</div>
+			<div class="col-md-6">
+				<label for="name-field" class="pb-2">Konu</label>
+				<input type="text" asp-for="Subject" name="Subject" id="name-field" class="form-control" required="">
+			</div>
+
+			<div class="col-md-12">
+				<label for="message-field" class="pb-2">Mesaj</label>
+				<textarea asp-for="MessageDetail" name="MessageDetail" class="form-control" id="message-field" required="" rows="10"></textarea>
+			</div>
+
+			<div class="col-md-12 text-center">
+				<div class="loading">Loading</div>
+				<div class="error-message"></div>
+				<div class="sent-message">Your message has been sent. Thank you!</div>
+
+				<button type="submit">Send Message</button>
+			</div>
+
+		</div>
+	</form>
+</div>
