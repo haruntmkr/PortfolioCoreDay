@@ -1,6 +1,19 @@
-﻿@model PortfolioCoreDay.Entities.Message
+﻿@model Message
+@if (TempData["Success"] != null)
+{
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+	Swal.fire({
+		icon: 'success',
+		title: '@Html.Raw(TempData["Success"])',
+
+		showConfirmButton: true
+
+	});
+</script>
+}
 <div class="col-lg-7">
-	<form method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+	<form method="post" action="/Message/SendMessage/" class="custom-email-form" data-aos="fade-up" data-aos-delay="200">
 		<div class="row gy-4">
 
 			<div class="col-md-6">
@@ -13,7 +26,7 @@
 				<input type="email" asp-for="Email" class="form-control" name="email" id="email-field" required="">
 			</div>
 			<div class="col-md-6">
-				<label for="name-field" class="pb-2">Konu</label>
+				<label for="subject-field" class="pb-2">Konu</label>
 				<input type="text" asp-for="Subject" name="Subject" id="name-field" class="form-control" required="">
 			</div>
 
@@ -23,11 +36,8 @@
 			</div>
 
 			<div class="col-md-12 text-center">
-				<div class="loading">Loading</div>
-				<div class="error-message"></div>
-				<div class="sent-message">Your message has been sent. Thank you!</div>
-
-				<button type="submit">Send Message</button>
+			
+				<button class="btn btn-outline-primary" type="submit">Gönder</button>
 			</div>
 
 		</div>

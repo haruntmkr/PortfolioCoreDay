@@ -10,9 +10,6 @@
 	<label>Proje Başlığı</label>
 	<input type="text" asp-for="Title" class="form-control" style="border:1px solid black" />
 	<br />
-	<label>Proje Açıklaması</label>
-	<input type="text" asp-for="Description" class="form-control" style="border:1px solid black" />
-	<br />
 	<label>Proje Github Url</label>
 	<input type="text" asp-for="Githuburl" class="form-control" style="border:1px solid black" />
 	<br />
@@ -23,6 +20,11 @@
 	<select asp-for="CategoryId" asp-items="ViewBag.v" class="form-control" style="border:1px solid black" >
 			<option value="">--Kategori Seçiniz--</option>
 	</select>
+	<br />
+	<label>Açıklama</label>
+	<textarea rows="4" class="form-control" asp-for="Description" class="form-control" style="border:1px solid black"></textarea>
+	<br />
+
 	<br />
 	<button class="btn btn-primary">Projeyi Ekle</button>
 </form>

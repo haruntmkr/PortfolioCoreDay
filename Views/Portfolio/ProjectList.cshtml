@@ -4,27 +4,26 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h2>ProjectList</h2>
+<h2>Project List</h2>
 
-<table class="table table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Başlık</th>
-        <th>Açıklama</th>
-        <th>Kategori</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-    </tr>
+<div class="row">
     @foreach (var item in Model)
-    { 
-        <tr>
-            <td>@item.PortfolioId</td>
-            <td>@item.Title</td>
-            <td>@item.Description</td>
-            <td>@item.Category.CategoryName</td>
-            <td><a href="/Portfolio/DeleteProject/@item.PortfolioId" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Portfolio/DeleteProject/@item.PortfolioId" class="btn btn-success">Güncelle</a></td>
-        </tr>
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card text-white">
+                <img src="@item.Imageurl" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex flex-column justify-content-end" style="background: rgba(0,0,0,0.5);">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">@item.Description</p>
+                    <p class="card-text"><small>Kategori: @item.Category.CategoryName</small></p>
+                    <div class="mt-2">
+                        <a href="/Portfolio/UpdatePortfolio/@item.PortfolioId" class="btn btn-sm btn-success">Güncelle</a>
+                        <a href="/Portfolio/DeletePortfolio/@item.PortfolioId" class="btn btn-sm btn-danger">Sil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
-</table>
-<a href="/Portfolio/DeleteProject/" class="btn btn-info"> Yeni Proje Girişi</a>
+</div>
+
+<a href="/Portfolio/CreatePortfolio/" class="btn btn-info">Yeni Proje Girişi</a>

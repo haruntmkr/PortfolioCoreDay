@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PortfolioCoreDay.Context;
 
@@ -11,9 +12,11 @@ using PortfolioCoreDay.Context;
 namespace PortfolioCoreDay.Migrations
 {
     [DbContext(typeof(PortfolioContext))]
-    partial class PortfolioContextModelSnapshot : ModelSnapshot
+    [Migration("20250512110818_mig9")]
+    partial class mig9
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -160,10 +163,7 @@ namespace PortfolioCoreDay.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ExperienceDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Industry")
+                    b.Property<string>("ExperienceDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -308,31 +308,6 @@ namespace PortfolioCoreDay.Migrations
                     b.HasKey("SkillId");
 
                     b.ToTable("Skills");
-                });
-
-            modelBuilder.Entity("PortfolioCoreDay.Entities.SocialMedia", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Icon")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SocialMedias");
                 });
 
             modelBuilder.Entity("PortfolioCoreDay.Entities.Statistic", b =>

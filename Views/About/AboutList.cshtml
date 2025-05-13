@@ -1,0 +1,55 @@
+﻿@model About
+@{
+	ViewData["Title"] = "AboutList";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+@if (TempData["Success"] != null)
+{
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		Swal.fire({
+			icon: 'success',
+			title: '@Html.Raw(TempData["Success"])',
+
+			showConfirmButton: true
+
+		});
+	</script>
+}
+<h2>Hakkımda Verileri</h2>
+
+<form method="post">
+	<input type="hidden" asp-for="AboutId" />
+	<label>Başlık</label>
+	<input type="text" asp-for="Title" class="form-control" style="border:1px solid black" />
+	<br />
+	<label>Yaş</label>
+	<input type="text" asp-for="Age" class="form-control" style="border:1px solid black" />
+	<br />
+	<label>Derece</label>
+	<input type="text" asp-for="Degree" class="form-control" style="border:1px solid black" />
+	<br />
+	<label>Şehir</label>
+	<input type="text" asp-for="City" class="form-control" style="border:1px solid black" />
+		<br/>
+	<label>Telefon</label>
+	<input type="text" asp-for="Phone" class="form-control" style="border:1px solid black" />
+	<br />
+	<label>Email</label>
+	<input type="text" asp-for="Email" class="form-control" style="border:1px solid black" />
+	<br />
+	<label>Web Site</label>
+	<input type="text" asp-for="Website" class="form-control" style="border:1px solid black" />
+	<br />
+	
+	<!--Herhangi bir kontrol eklenmesine gerek yok kendi true false zaten eşleştiriyor-->
+	<div class="form-check">
+		<input type="checkbox" asp-for="Freelance" class="form-check-input" />
+		<label class="form-check-label" asp-for="Freelance">Freelance Çalışma Durumu</label>
+	</div>
+	<br />
+	<label>Özet</label>
+	<textarea type="text" asp-for="Summary" class="form-control" style="border:1px solid black;height:200px;" ></textarea>
+	<br/>
+	<button class="btn btn-success">Yeteneği Güncelle</button>
+</form>
