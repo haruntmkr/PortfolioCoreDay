@@ -1,29 +1,40 @@
 ﻿@model List<Portfolio>
 @{
-    ViewData["Title"] = "ProjectList";
-    Layout = "~/Views/AdminLayout/Index.cshtml";
+	ViewData["Title"] = "ProjectList";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h2>Project List</h2>
-
+<h2>Projelerim</h2>
+<br />
+<br />
+<br />
 <div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-4 mb-4">
-            <div class="card text-white">
-                <img src="@item.Imageurl" class="card-img" alt="...">
-                <div class="card-img-overlay d-flex flex-column justify-content-end" style="background: rgba(0,0,0,0.5);">
-                    <h5 class="card-title">@item.Title</h5>
-                    <p class="card-text">@item.Description</p>
-                    <p class="card-text"><small>Kategori: @item.Category.CategoryName</small></p>
-                    <div class="mt-2">
-                        <a href="/Portfolio/UpdatePortfolio/@item.PortfolioId" class="btn btn-sm btn-success">Güncelle</a>
-                        <a href="/Portfolio/DeletePortfolio/@item.PortfolioId" class="btn btn-sm btn-danger">Sil</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-</div>
+	@foreach (var item in Model)
+	{
+		<div class="col-md-5 mb-5">
+			<div class="border rounded p-3 shadow-sm">
 
+				<div class="card text-white">
+					<img src="@item.Imageurl" class="card-img" alt="...">
+					<div class="card-img-overlay d-flex flex-column justify-content-end" style="background: rgba(0,0,0,0.5);">
+
+						<p class="card-text"><small>Kategori: @item.Category.CategoryName</small></p>
+						<div class="mt-2">
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="mt-2">
+						<h5 class="card-title">@item.Title</h5>
+						<p class="card-text">@item.Description</p>
+
+						<a href="/Portfolio/UpdatePortfolio/@item.PortfolioId" class="btn btn-sm btn-success">Güncelle</a>
+						<a href="/Portfolio/DeletePortfolio/@item.PortfolioId" class="btn btn-sm btn-danger">Sil</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+</div>
+<br />
 <a href="/Portfolio/CreatePortfolio/" class="btn btn-info">Yeni Proje Girişi</a>
